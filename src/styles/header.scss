@@ -1,0 +1,25 @@
+.header {
+  width: 100%;
+  display: grid;
+  grid: 20px auto 20px / 11.2% auto 11.2%;
+}
+.header-container{
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-container__logo {
+  width: 92px;
+  height: 16px;
+}
+.header-container-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header-container__phone{
+  display: flex;
+  align-items: center;
+}
