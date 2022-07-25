@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../components/Header/Header"
 import Presentation from "../components/Presentation";
-// import { login } from "../services/sessions-services";
+import { login } from "../services/sessions-services";
 
 
-export default function LoginPage(){
+export default function LoginPage({user,setUser}){
   const [conditionsAccepted, setConditionsAccepted] = React.useState(false);
 
   function handleChange () {
@@ -16,14 +16,15 @@ export default function LoginPage(){
     const { documentType, document, phone, placa, check } = event.target.elements;
     console.log(event.target.elements)
     const credentials = {
-      phone: phone.value,
+      telefono: phone.value,
       placa: placa.value,
       check: check.checked,
-      document: document.value,
-      documentType: documentType.value
+      documento: document.value,
+      "tipo-documento": documentType.value
     }
-    console.log(credentials)
-    // login(credentials).catch((error)=>console.log(error));
+    let data = login(credentials).catch((error)=>console.log(error));
+
+    setUser(data)
   }
   return (
     <>
@@ -43,7 +44,7 @@ export default function LoginPage(){
           </div> 
           <div className="input--container">
             <label htmlFor="phone"></label>
-            <input value="Celular" className="form__phone" id="phone" name="phone" type="phone" />
+            <input value="945566678" className="form__phone" id="phone" name="phone" type="phone" />
           </div>
           <div className="input--container">
             <label htmlFor="placa"></label>
