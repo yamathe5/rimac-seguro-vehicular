@@ -1,0 +1,15 @@
+.main-presentation {
+  width: 100%;
+  display: grid;
+  grid: 11.2% auto / 11.2% 1fr 1fr 11.2%
+
+}
+.main-presentation__img{
+  grid-row: 2/3;
+  grid-column: 4/5;
+  justify-self: right;
+}
+.main-presentation-text{
+  grid-column: 2/4;
+  grid-row: 2/3;
+}
