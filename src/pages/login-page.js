@@ -3,25 +3,97 @@ import Header from "../components/Header/Header"
 import Presentation from "../components/Presentation";
 import { login } from "../services/sessions-services";
 
+const nombres = ['Johan','Juan','Pedro','Micaela', 'Sara','Stefany']
+const autos = [
+  {
+    auto: 'BMW',
+    modelo: [ 'x2', 'x4','x6' ]
+  },
+  {
+    auto: 'Mercedez-Benz',
+    modelo: [ 'Sedan','Glc','Coupe' ]
+  },
+  {
+    auto: 'Audi',
+    modelo: [ 'A5','A7', 'Q7' ]
+  },
+  {
+    auto: 'Renault',
+    modelo: [ 'KWID', 'STEPWAY', 'ALL NEW DUSTER' ]
+  },
+  {
+    auto: 'Ford',
+    modelo: [ 'Bronco','Edge','Evos' ]
+  }
+]
+
 
 export default function LoginPage({user,setUser}){
   const [conditionsAccepted, setConditionsAccepted] = React.useState(false);
+  const [documentTypeInput, setDocumentTypeInput] = React.useState("DNI");
+  const [document, setDocument] = React.useState("")
+  const [phone, setPhone] = React.useState("")
+  const [placa, setPlaca] = React.useState("")
 
+
+  function handleSelectChange(e){
+    setDocumentTypeInput(e.target.value)
+  }
+  function handlePhoneChange(e){
+    setPhone(e.target.value)
+  }
+  function handlePlacaChange(e){
+    setPlaca(e.target.value)
+  }
+  function handleDocumentChange(e){
+    setDocument(e.target.value)
+  }
   function handleChange () {
     setConditionsAccepted(current => !current)
   }
 
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
   function handleSubmit(event){
     event.preventDefault();
+
+
     const { documentType, document, phone, placa, check } = event.target.elements;
-    // console.log(event.target.elements)
+
+  //   {
+  //     "tipo-documento": "DNI",
+  //     "documento": "09054363",
+  //     "celular": "998401012",
+  //     "placa": "ASD-ASD",
+  //     "nombre":"",
+  //     "auto": "",
+  //     "modelo-auto": "",
+  //     "año-auto": "",
+  //     "correo":""
+  // }
+
+    let nombre = nombres[getRandomInt(5)]
+    let auto = autos[getRandomInt(4)].auto
+    let modelo = autos[getRandomInt(4)].modelo[getRandomInt(2)]
+    let años =  2000 + getRandomInt(20)
     const credentials = {
-      telefono: phone.value,
-      placa: placa.value,
-      check: check.checked,
+      "tipo-documento": documentType.value,
       documento: document.value,
-      "tipo-documento": documentType.value
+      celular: phone.value,
+      placa: placa.value,
+      nombre: nombre,
+      auto: auto,
+      "modelo-auto": modelo,
+      "año-auto": años,
+      correo: nombre + "@gmail.com",
+      extra: "extra"
     }
+
+    console.log(credentials)
+    
     let data = login(credentials).catch((error)=>console.log(error));
 
     setUser(data)
@@ -37,23 +109,26 @@ export default function LoginPage({user,setUser}){
           <form className="form--container--form" onSubmit={handleSubmit}>
             <div className="input--container">
               <label htmlFor="documentType"></label>
-              <select className="form__select" name="documentType" id="documentType">
+              <select onChange={handleSelectChange} className="form__select" name="documentType" id="documentType">
                 <option value="DNI">DNI</option>
                 <option value="Pasaporte">Pasaporte</option>
               </select>
               <label htmlFor="document"></label>
-              <input value="72715796" className="form__document" id="document" name="document" type="document" />
+              {documentTypeInput === "DNI"?  
+                <input pattern="[0-9]{8}"  value={document} onChange={handleDocumentChange} placeholder="123456789" className="form__document" id="document" name="document" type="document" required/>:
+                <input pattern="[0-9]{12}" value={document} onChange={handleDocumentChange} placeholder="123456789123" className="form__document" id="document" name="document" type="document" required/> }
+              
             </div> 
             <div className="input--container">
               <label htmlFor="phone"></label>
-              <input value="945566678" className="form__phone" id="phone" name="phone" type="phone" />
+              <input pattern="[0-9]{9}" value={phone} onChange={handlePhoneChange} className="form__phone" placeholder="999888777" id="phone" name="phone" type="phone" required/>
             </div>
             <div className="input--container">
               <label htmlFor="placa"></label>
-              <input value="Placa" className="form__placa" id="placa" name="placa" type="text" />
+              <input pattern="[0-9|A-Z]{3}-[0-9|A-Z]{3}" placeholder="XWE-123" onChange={handlePlacaChange} value={placa} className="form__placa" id="placa" name="placa" type="text" required/>
             </div>
             <div className="input--container flex align-center gap">
-              <input className="form__check" defaultChecked={conditionsAccepted} onChange={handleChange} id="check" name="check" type="checkbox" />
+              <input className="form__check" defaultChecked={conditionsAccepted} onChange={handleChange} id="check" name="check" type="checkbox" required/>
               <label className="text-sm" htmlFor="check">Acepto la Política de Protecciòn de Datos Personales y los Términos y Condiciones.</label>
             </div>
             <button className="form__submit button" type="submit">COTIZALO</button>
