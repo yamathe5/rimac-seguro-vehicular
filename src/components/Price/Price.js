@@ -17,6 +17,5 @@ export default function Price ({price}){
         <button className="button">LO QUIERO</button>
       </div>
     </div>
-    
   )
 }

@@ -13,7 +13,7 @@ export default function SidebarItem (){
         </div>
         <div>
           <button className="rounded-button__selected">2</button>
-          <p className="text-lg font-400" >Datos</p>
+          <p className="text-lg font-400" >Arma tu plan</p>
         </div>
         
       </div>
