@@ -14,7 +14,7 @@ export default function LoginPage({user,setUser}){
   function handleSubmit(event){
     event.preventDefault();
     const { documentType, document, phone, placa, check } = event.target.elements;
-    console.log(event.target.elements)
+    // console.log(event.target.elements)
     const credentials = {
       telefono: phone.value,
       placa: placa.value,
