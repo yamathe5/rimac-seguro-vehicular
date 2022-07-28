@@ -1,7 +1,10 @@
+@use './breakpoints' as u;
+
 .header {
   width: 100%;
   display: grid;
   grid: 20px auto 20px / 9% auto 9%;
+  
 }
 .header-container{
   grid-column: 2/3;
@@ -17,9 +20,30 @@
 .header-container-links {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  // gap: 2.4rem;
+}
+.header-container-links__help{
+  
+
 }
 .header-container__phone{
   display: flex;
   align-items: center;
+
+  @include u.breakpoint(large){
+    display: none;
+  }
+ 
+}
+.header-container__phone__dektop{
+  display: none;
+  // display: flex;
+  // align-items: center;
+  @include u.breakpoint(large){
+    display: flex;
+    
+  }
+}
+.header-container__phone__dektop img{
+  margin-left: 2.4rem;
 }
