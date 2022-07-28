@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Cobertura ({setPrice, id, coberturaData, setCoberturaData, add, price,title, text}){
+export default function Cobertura ({setPrice, id,img, coberturaData, setCoberturaData, add, price,title, text}){
   // const [show, setShow] = React.useState(false); 
   function increasePrice(){
     setPrice((prev)=>prev+price)
@@ -25,18 +25,16 @@ export default function Cobertura ({setPrice, id, coberturaData, setCoberturaDat
 
   return (
     <>
-     <div className="coberturas--form--cobertura">
-          <div>
-            <h4>{title}</h4>
-            { add? <button onClick={decreasePrice}>Quitar</button> : <button onClick={increasePrice} >Agregar</button> }
+      <div className="coberturas_form--cobertura">
+          <img src={img} />
+
+          <h4 className="headline-xxs">{title}</h4>
+          { add?  <button onClick={decreasePrice}> Quitar</button>: <button onClick={increasePrice} >Agregar</button> }
             
-            <span>Quitar</span>
-          </div>
-          <div>
-            {/* <button>QUITAR</button> */}
-            <p>{text}</p>
-          </div>
+        <div>
+          <p className="text-md">{text}</p>
         </div>
+      </div>
     </>
   )
 }
