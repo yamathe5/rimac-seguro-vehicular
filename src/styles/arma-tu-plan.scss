@@ -1,0 +1,25 @@
+.arma_tu_plan {
+  display: grid;
+  // grid-template: auto /30% auto;  dektop
+  grid-template: auto auto auto auto / 9% auto 9%; // movile
+}
+
+.arma_tu_plan--container {
+  grid-column: 2/3;
+  // justify-content: center;
+  // max-width: ;
+  display: grid;
+
+}
+
+.sidebar{
+  grid-column: 2/3;
+}
+.coberturas {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+.price {
+  grid-column: 2/3;
+  grid-row: 4/5;
+}
