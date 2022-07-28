@@ -1,0 +1,19 @@
+.button {
+  background-color: $red-color;
+  color: $white-color;
+  border-radius: 0.8rem;
+
+  font-family: 'Lato';
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.purple_link{
+  color: $purple-color;
+}
+.normal_link {
+  color: $gray-300;
+}
+

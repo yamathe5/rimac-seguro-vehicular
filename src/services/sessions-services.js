@@ -7,8 +7,7 @@ export async function login(credentials){
   const users = await apiFetch("users", {
     // body: credentials
   });
-  console.log(credentials)
-  console.log(users)
+
 
   user = users.find((user)=>{
     return (user.documento === credentials.documento
@@ -28,15 +27,10 @@ export async function login(credentials){
   });
 
   return user
-
-
-  
-   
 }
 
-export async function logout(){
-  await apiFetch("logout", {
-    method: "delete" 
-  })
+export function logout(){
   sessionStorage.removeItem(tokenKey)
+
+  return 
 }

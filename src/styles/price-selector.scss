@@ -1,0 +1,19 @@
+.price_selector{
+  width: 100%;
+  max-width: 38rem;
+}
+.price_selector--buttons{
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+}
+.price_selector--buttons p{
+  width: 100%;
+  text-align: center;
+}
+.price_selector--buttons button{
+  width: 5.6rem;
+  height: 5rem;
+  background-color: transparent;
+  border: none;
+}
