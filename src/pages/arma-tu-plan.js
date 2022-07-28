@@ -5,13 +5,16 @@ import PriceSelector from "../components/Price-selector"
 import Coberturas from "../components/Coberturas/Coberturas"
 import Price from "../components/Price"
 import { logout } from "../services/sessions-services"
+import Llanta from "../assets/Llanta-robada.png"
+import Choque from "../assets/Choque.png"
+import Atropello from "../assets/Atropello.png"
 
 import React from "react"
 
 const data = [
   {
     id:0,
-    img: "Not yet 1",
+    img: Llanta,
     show: false,
     add: true,
     price: 15,
@@ -20,7 +23,7 @@ const data = [
   },
   {
     id:1,
-    img: "Not yet 2",
+    img: Choque,
     show: false,
     add: false,
     price: 20,
@@ -29,7 +32,7 @@ const data = [
   },
   {
     id:2,
-    img: "Not yet 3",
+    img: Atropello,
     show: false,
     add: false,
     price: 50,
@@ -42,15 +45,6 @@ export default function ArmaTuPlan ({user,setUser}){
 
   
   const [coberturaData, setCoberturaData]  = React.useState(data)
-  
-  // let coberturaPrices = coberturaData.reduce((acc,obj) => {
-  //   if(obj.add === true) {
-  //     return acc + obj.price
-  //   }else {
-  //     return acc
-  //   }
-  // },0)
-  
   const [price, setPrice] = React.useState(35)
 
 
@@ -58,33 +52,26 @@ export default function ArmaTuPlan ({user,setUser}){
     let newUser = logout()
     setUser(newUser)
   }
-
-  // suma asegurada 
-  // monto base 
-    // ->CUANDO DE CLICK EN ESTOS SE VBA 
-    //   A AUMENTAR EL PRECIO
-      // llanta robada 15
-      // choque 20 
-      // atropello 50
  
   return (
     <>
       <Headers/>
       <div className="arma_tu_plan">
-        {/* <Sidebar/> */}
+        <Sidebar/>
         <div className="arma_tu_plan--container">
           <div>
-            <button onClick={handleLogout}>Volver</button>
-            <span>Volver</span>
-            <h2>!Hola Juan!, Mira lcas coverturas</h2>
-            <p>Conoce las coberturas para tu plan</p>
+            <button className="rounded-button__red" onClick={handleLogout}>	&#x3C;</button>
+            <span> VOLVER </span>
+            <h2 className="headline-md mg-top-24">!Hola, <span className="">Juan!</span></h2>
+            <p className="text-lg">Conoce las coberturas para tu plan</p>
+            <UserCard user={user}/>
           </div>
-          <UserCard user={user}/>
-          <PriceSelector setPrice={setPrice} coberturaData={coberturaData} setCoberturaData={setCoberturaData}/> {/* MODIFICA A COBERTURA 
+          {/* MODIFICA A COBERTURA 
             quita la cobertura de choque 
           */}
           
         </div>
+        <PriceSelector setPrice={setPrice} coberturaData={coberturaData} setCoberturaData={setCoberturaData}/> 
       
         <Coberturas coberturaData={coberturaData} 
                     setCoberturaData={setCoberturaData} 

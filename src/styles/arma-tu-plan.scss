@@ -1,25 +1,106 @@
+@use './breakpoints' as u;
+
 .arma_tu_plan {
+  border-top: 1px solid #E4E8F7;
+  
+  justify-content: center;
   display: grid;
   // grid-template: auto /30% auto;  dektop
   grid-template: auto auto auto auto / 9% auto 9%; // movile
+  @include u.breakpoint(large){
+    grid-template: auto auto auto auto / 9% 26% 1fr 1fr; // movile
+  }
 }
 
 .arma_tu_plan--container {
-  grid-column: 2/3;
-  // justify-content: center;
-  // max-width: ;
-  display: grid;
+  grid-column: 1/4;
+  box-shadow: 200px 0px #F7F8FC, -200px 0px #F7F8FC;
 
+  display: grid;
+  grid-template-columns:  9% auto 9%;
+  background-color: #F7F8FC;
+  
+  @include u.breakpoint(large){
+    box-shadow: none;
+    grid-template-columns: 0 auto 0 ;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    margin-top: 4.8rem;
+    background-color: #FFFFFF;
+  }
+}
+.arma_tu_plan--container > div{
+  grid-column: 2/3;
+  padding-top: 4rem;
+  padding-bottom: 5.6rem;
+  max-width: 38rem;
+  justify-self: center;
+  @include u.breakpoint(large){
+    justify-self: left;
+    padding-top: 0rem;
+    max-width: 38rem;
+  }
 }
 
 .sidebar{
+  padding: 1.2rem 0;
   grid-column: 2/3;
+  max-width: 38rem;
+  width: 100%;
+  display: flex;
+  // justify-items: space-between;
+  @include u.breakpoint(large){
+    margin-top: 4.8rem;
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  
+}
+.sidebar--mobile{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include u.breakpoint(large){
+    display: none;
+  }
+}
+.sidebar--desktop{
+  display: none;
+  @include u.breakpoint(large){
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: left;
+    gap : 4.4rem;
+  }
+}
+.sidebar--desktop div{
+  display: flex;
+  gap: 1.6rem;
+  // margin-bottom: 4.4rem;
+}
+.sidebar--desktop div button {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+
+.sidebar--mobile .pruple-bar{
+  width: 17.6rem;
+  height: 0.6rem;
+  background-color: $purple-color;
+  border-radius: 2rem;
 }
 .coberturas {
-  grid-column: 2/3;
-  grid-row: 3/4;
-}
-.price {
+  max-width: 38rem;
   grid-column: 2/3;
   grid-row: 4/5;
+  @include u.breakpoint(large){
+    margin-top: 5.5rem;
+    grid-column: 3/4;
+    grid-row: 4/5;
+  }
 }
+
