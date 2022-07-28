@@ -1,3 +1,5 @@
+@use './breakpoints' as u;
+
 .arma_tu_plan--user_card{
   height: 17rem;
   width: 100%;
@@ -5,8 +7,16 @@
   max-width: 38rem;
   display: grid;
   grid-template:  25% 1fr auto 1fr 25%/ 8%  1fr 1fr 1fr  8% ;
-  border: 0.1rem solid black;
   border-radius: 1.2rem;
+  background-color: white;
+
+  @include u.breakpoint(large){
+    margin-top: 4.4rem;
+    border: 3px solid #F0F2FA;
+    border-radius: 12px;
+
+    // background-color: red;
+  }
 }
 .arma_tu_plan--user_card img{
   align-self: flex-end;

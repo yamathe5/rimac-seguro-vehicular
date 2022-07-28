@@ -29,33 +29,36 @@ export default function LoginPage({user,setUser}){
   return (
     <>
       <Header/>
-      <Presentation/>
-      <div className="form--container">
-        <h2 className="form--container__h2">Dejanos tus datos</h2>
-        <form className="form--container--form" onSubmit={handleSubmit}>
-          <div className="input--container">
-            <label htmlFor="documentType"></label>
-            <select className="form__select" name="documentType" id="documentType">
-              <option value="DNI">DNI</option>
-              <option value="Pasaporte">Pasaporte</option>
-            </select>
-            <label htmlFor="document"></label>
-            <input value="72715796" className="form__document" id="document" name="document" type="document" />
-          </div> 
-          <div className="input--container">
-            <label htmlFor="phone"></label>
-            <input value="945566678" className="form__phone" id="phone" name="phone" type="phone" />
-          </div>
-          <div className="input--container">
-            <label htmlFor="placa"></label>
-            <input value="Placa" className="form__placa" id="placa" name="placa" type="text" />
-          </div>
-          <div className="input--container">
-            <input defaultChecked={conditionsAccepted} onChange={handleChange} id="check" name="check" type="checkbox" />
-            <label htmlFor="check">Acepto la Política de Protecciòn de Datos Personales y los Términos y Condiciones.</label>
-          </div>
-          <button className="form__submit" type="submit">COTIZALO</button>
-        </form>
+      <div className="main"> 
+        <div className="main--background"></div>
+        <Presentation/>
+        <div className="form--container">
+          <h2 className="form--container__h2 headline-sm">Dejanos tus datos</h2>
+          <form className="form--container--form" onSubmit={handleSubmit}>
+            <div className="input--container">
+              <label htmlFor="documentType"></label>
+              <select className="form__select" name="documentType" id="documentType">
+                <option value="DNI">DNI</option>
+                <option value="Pasaporte">Pasaporte</option>
+              </select>
+              <label htmlFor="document"></label>
+              <input value="72715796" className="form__document" id="document" name="document" type="document" />
+            </div> 
+            <div className="input--container">
+              <label htmlFor="phone"></label>
+              <input value="945566678" className="form__phone" id="phone" name="phone" type="phone" />
+            </div>
+            <div className="input--container">
+              <label htmlFor="placa"></label>
+              <input value="Placa" className="form__placa" id="placa" name="placa" type="text" />
+            </div>
+            <div className="input--container flex align-center gap">
+              <input className="form__check" defaultChecked={conditionsAccepted} onChange={handleChange} id="check" name="check" type="checkbox" />
+              <label className="text-sm" htmlFor="check">Acepto la Política de Protecciòn de Datos Personales y los Términos y Condiciones.</label>
+            </div>
+            <button className="form__submit button" type="submit">COTIZALO</button>
+          </form>
+        </div>
       </div>
     </>
 )

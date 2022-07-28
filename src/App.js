@@ -5,13 +5,14 @@ import { tokenKey } from './config';
 
 import React from 'react';
 import ArmaTuPlan from './pages/arma-tu-plan';
-// import GraciasPage from './pages/gracias-page';
+import GraciasPage from './pages/gracias-page';
 // import Gracias from './components/Gracias';
 function App() {
   const [user, setUser] = React.useState(JSON.parse(sessionStorage.getItem(tokenKey)) || null)
 
   return (
     <>
+     {/* <GraciasPage/> */}
       { !user? <LoginPage user={user} setUser={setUser}/> : <ArmaTuPlan user={user} setUser={setUser} />}
     </>
   );
