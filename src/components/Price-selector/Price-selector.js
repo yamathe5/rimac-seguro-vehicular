@@ -49,11 +49,11 @@ export default function PriceSelector({setPrice, coberturaData, setCoberturaData
   
   return (
   <div className="price_selector">
-    <h3>Indica la suma asegurada</h3>
-    <p>Min $12,500 | Max $16,500</p>
+    <h3 className="headline-xxs">Indica la suma asegurada</h3>
+    <p className="text-sm">Min $12,500 | Max $16,500</p>
     <div className="price_selector--buttons">
       <button onClick={decrease}>-</button>
-      <p>$ {budget}</p>
+      <p className="headline-xxs">$ {budget}</p>
       <button onClick={increase}>+</button>
     </div>
   </div>
