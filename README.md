@@ -3,6 +3,8 @@
 
 Rimac seguro vehicular cumple todas las funcionalidades esperadas por parte de la evalucacion. Tendras la capacidad de logearte gracias a una API como usuario nuevo o usuario existente, dependiendo de tu numero de DNi y tu numero de Placa. Asimismo, puedes elegir el plan de coberturas y monto asegurado que mas se ajuste a ti. Por utimo, los datos persisten hasta las pagina de Gracias.
 
+Detalle de la entrega: No me fue posible levantar el proyecto en un dominio porque no me permiten hacer peticiones API REST.
+
 ## API
 
 Cree una Fake API basica alojada en Heroku para este proyecto. Capaz de ejecutar los Metodos API rest pero no persiste los datos si deja de recibir llamadas.
@@ -43,7 +45,8 @@ API-repositorio: https://github.com/yamathe5/rimac-seguro-vehicular-api
 
 ## Detalles del proyecto 
 1. La API simula un servidor externo y tiene los metodos API REST pero al cabo de un tiempo se borra esta data y se mantiene la de repositorio de github. 
-2. La indicacion nro.2 en la pagina arma-tu-plan se implemento segun lo indicado, pero el usuario aun tiene la posibilidad de marcar o desmarcar esta cobertura.
+2. No me fue posible levantar el proyecto en un dominio porque no me permiten hacer peticiones API REST.
+3. La indicacion nro.2 en la pagina arma-tu-plan se implemento segun lo indicado, pero el usuario aun tiene la posibilidad de marcar o desmarcar esta cobertura.
 El detalle es saber si esta cobertura se encuentra desbloqueada para marcar en cualquier momento, o si solo se agrega o desagrega cuando se supera el monto asegurado a 16000
 
 ## Apreciacion del proyecto
