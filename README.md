@@ -5,7 +5,7 @@ Rimac seguro vehicular cumple todas las funcionalidades esperadas por parte de l
 
 ## API
 
-Cree una Fake API basica alojada en Heroku para reste proyecto. Capaz de ejecutar los Metodos API rest pero no persiste los datos si deja de recibir llamadas.
+Cree una Fake API basica alojada en Heroku para este proyecto. Capaz de ejecutar los Metodos API rest pero no persiste los datos si deja de recibir llamadas.
 
 API: https://my-rimac-seguro-vehicular-api.herokuapp.com/users
 
