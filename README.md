@@ -46,5 +46,6 @@ API-repositorio: https://github.com/yamathe5/rimac-seguro-vehicular-api
 2. La indicacion nro.2 en la pagina arma-tu-plan se implemento segun lo indicado, pero el usuario aun tiene la posibilidad de marcar o desmarcar esta cobertura.
 El detalle es saber si esta cobertura se encuentra desbloqueada para marcar en cualquier momento, o si solo se agrega o desagrega cuando se supera el monto asegurado a 16000
 
-
-
+## Apreciacion del proyecto
+1. El proyecto ha sido entretenido y algo retador, este proyecto me ayudo a mejorar mis habilidades usando y pasando props, render de componentes con el iterador map, en que situaciones aplicar el React Context y uso de React Router Dom, 
+2. Gracias al proyecto aprendi a levantar una fake API basica, adquiri conocimientos en Postman y descubri mas funcionalidades de sass.
