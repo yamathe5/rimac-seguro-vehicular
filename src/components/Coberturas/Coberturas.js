@@ -19,6 +19,7 @@ export default function Coberturas({coberturaData,setCoberturaData,setPrice}){
         </div>
         {coberturaData.map((item)=>{
           return <Cobertura 
+          key={item.id}
           setPrice={setPrice} 
           coberturaData={coberturaData}
           setCoberturaData={setCoberturaData}
