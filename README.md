@@ -18,7 +18,7 @@ API-repositorio: https://github.com/yamathe5/rimac-seguro-vehicular-api
 
 
 ## Librerias o Dependencias adicionales
-- React Router Dom
+- React Router Dom: Fue utilizado para simular navegacion entre paginas web por medio del URL
 
 ## Recursos Utilizados
 - Sass
@@ -49,3 +49,4 @@ El detalle es saber si esta cobertura se encuentra desbloqueada para marcar en c
 ## Apreciacion del proyecto
 1. El proyecto ha sido entretenido y algo retador, este proyecto me ayudo a mejorar mis habilidades usando y pasando props, render de componentes con el iterador map, en que situaciones aplicar el React Context y uso de React Router Dom, 
 2. Gracias al proyecto aprendi a levantar una fake API basica, adquiri conocimientos en Postman y descubri mas funcionalidades de sass.
+3. Actualmente me encuentro haciendo Code Review del proyecto para identificar si hay alguan oportunidad de mejora.
