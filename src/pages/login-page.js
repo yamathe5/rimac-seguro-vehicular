@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "../components/Header/Header"
 import Presentation from "../components/Presentation";
-import { login } from "../services/sessions-services";
+// import { login } from "../services/sessions-services";
+import { useAuth } from "../context/auth-context";
 
 const nombres = ['Johan','Juan','Pedro','Micaela', 'Sara','Stefany']
 const autos = [
@@ -28,7 +29,8 @@ const autos = [
 ]
 
 
-export default function LoginPage({user,setUser}){
+export default function LoginPage(){
+  const { login } = useAuth(); //////////////////////////////////////
   const [conditionsAccepted, setConditionsAccepted] = React.useState(false);
   const [documentTypeInput, setDocumentTypeInput] = React.useState("DNI");
   const [document, setDocument] = React.useState("")
@@ -61,7 +63,7 @@ export default function LoginPage({user,setUser}){
     event.preventDefault();
 
 
-    const { documentType, document, phone, placa, check } = event.target.elements;
+    
 
   //   {
   //     "tipo-documento": "DNI",
@@ -74,7 +76,7 @@ export default function LoginPage({user,setUser}){
   //     "año-auto": "",
   //     "correo":""
   // }
-
+    const { documentType, document, phone, placa, check } = event.target.elements;
     let nombre = nombres[getRandomInt(5)]
     let auto = autos[getRandomInt(4)].auto
     let modelo = autos[getRandomInt(4)].modelo[getRandomInt(2)]
@@ -94,9 +96,11 @@ export default function LoginPage({user,setUser}){
 
     console.log(credentials)
     
-    let data = login(credentials).catch((error)=>console.log(error));
+    console.log(login);
 
-    setUser(data)
+    login(credentials).catch((error)=>console.log(error));
+
+    // setUser(data)
   }
   return (
     <>

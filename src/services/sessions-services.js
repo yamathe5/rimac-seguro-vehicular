@@ -30,7 +30,5 @@ export async function login(credentials){
 }
 
 export function logout(){
-  sessionStorage.removeItem(tokenKey)
-
-  return 
+  sessionStorage.removeItem(tokenKey) 
 }
