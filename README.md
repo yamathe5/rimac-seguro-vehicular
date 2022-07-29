@@ -1,70 +1,50 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Rimac seguro vehicular - Johan Segura
 
-## Available Scripts
+Rimac seguro vehicular cumple todas las funcionalidades esperadas por parte de la evalucacion. Tendras la capacidad de logearte gracias a una API como usuario nuevo o usuario existente, dependiendo de tu numero de DNi y tu numero de Placa. Asimismo, puedes elegir el plan de coberturas y monto asegurado que mas se ajuste a ti. Por utimo, los datos persisten hasta las pagina de Gracias.
 
-In the project directory, you can run:
+## API
 
-### `npm start`
+Cree una Fake API basica alojada en Heroku para reste proyecto. Capaz de ejecutar los Metodos API rest pero no persiste los datos si deja de recibir llamadas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+API: https://my-rimac-seguro-vehicular-api.herokuapp.com/users
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+API-repositorio: https://github.com/yamathe5/rimac-seguro-vehicular-api
 
-### `npm test`
+## Funcionalidades Extra
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Si tu DNI se repite entonces la API te devolvera el nombre pero con un carro distinto
+2. Si tu DNI, el numero de telefono y el numero de placa coinciden entonces te mostrara todos los datos del perfil anteriormente creado.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Librerias o Dependencias adicionales
+- React Router Dom
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Recursos Utilizados
+- Sass
+- Postman
+- Heroku
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Division de tareas
+### Se dividio el trabajo en ramas
+1. Creacion de pagina, Componentes y estilos basicos
+2. Agregacion de Servicios API
+3. Authenticacion usuario usando React Context 
+4. Añadir React Router Dom
+5. Mejorar los estilos
 
-### `npm run eject`
+## Levantar el proyecto
+1. Debemos tener actualizado npm y node
+2. Copiamos el proyeco en una carpeta
+3. Entramos al proyecto
+4. Corremos el comando **npm install** dentro del proyecto
+5. Corremos el comando **npm start** dentro del proyecto
+6. Revisamos el **localhost:3000** o el que react nos indique o el que tengamso asignado.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Detalles del proyecto 
+1. La API simula un servidor externo y tiene los metodos API REST pero al cabo de un tiempo se borra esta data y se mantiene la de repositorio de github. 
+2. La indicacion nro.2 en la pagina arma-tu-plan se implemento segun lo indicado, pero el usuario aun tiene la posibilidad de marcar o desmarcar esta cobertura.
+El detalle es saber si esta cobertura se encuentra desbloqueada para marcar en cualquier momento, o si solo se agrega o desagrega cuando se supera el monto asegurado a 16000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
