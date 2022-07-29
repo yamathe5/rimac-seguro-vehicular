@@ -1,27 +1,19 @@
 import React from "react";
 import * as services from "../services/sessions-services";
 import { tokenKey } from "../config";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext();
 
 function AuthProvider({children}){
   const [user, setUser] = React.useState(JSON.parse(sessionStorage.getItem(tokenKey)) || null)
-  // const [loading, setLoading] = React.useState(true)
+  const navigate = useNavigate();
 
-  // React.useEffect(()=>{
-  //   getUser()
-  //     .then((u) => {
-  //       setUser(u)
-  //       setLoading(false)
-  //       console.log("xd")
-  //     })
-  //     .catch((error)=>{setLoading(false)})
-  // },[setUser])
 
   function login (credentials) {
     return services.login(credentials)
     .then((u)=>{
-      // sessionStorage.setItem(tokenKey, JSON.stringify(u))
+      navigate("/arma-tu-plan")
       setUser(u)
     })
   }
@@ -29,13 +21,17 @@ function AuthProvider({children}){
   function logout(){
     services.logout()
     setUser(null)
-    
+    navigate("/")
+  }
+
+  function sendData(){
+    navigate("/gracias")
   }
 
   // if (loading) return <p>Loading</p>
 
   return (
-    <AuthContext.Provider value={{user, login, logout}}>
+    <AuthContext.Provider value={{user, login, logout, sendData}}>
       {children}
     </AuthContext.Provider>
   );
