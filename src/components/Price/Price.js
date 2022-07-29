@@ -1,4 +1,13 @@
+import { useAuth } from "../../context/auth-context";
+
 export default function Price ({price}){
+
+  const {sendData, user} = useAuth();
+
+  function handleSendData (){
+    sendData()
+  }
+
   return(
     <div className="price">
       <div className="price--container">
@@ -14,7 +23,7 @@ export default function Price ({price}){
           <p className="text-md"><span className="green-300">✔</span> Aros gratis</p>
         </div>
 
-        <button className="button">LO QUIERO</button>
+        <button onClick={handleSendData} className="button">LO QUIERO</button>
       </div>
     </div>
   )
