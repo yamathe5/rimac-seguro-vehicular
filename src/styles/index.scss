@@ -1,13 +1,14 @@
-@import './figma-styles.scss',
-'./header.scss', 
-'./presentation.scss',
+@import './globals.scss',
+'./components/header.scss', 
+'./components/presentation.scss',
 './login-page.scss',
 './reset-styles.scss',
-'./gracias.scss',
+'./gracias-page.scss',
 './arma-tu-plan.scss',
-'./user-card.scss',
-'./price-selector.scss',
-'./coberturas.scss',
-'./buttons.scss',
-'./price.scss'
+'./components/user-card.scss',
+'./components/price-selector.scss',
+'./components/coberturas.scss',
+'./components/buttons.scss',
+'./components/price.scss',
+'./components/sidebar.scss'
 

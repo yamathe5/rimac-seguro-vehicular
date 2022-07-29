@@ -1,4 +1,4 @@
-@use './breakpoints' as u;
+@use '../breakpoints' as u;
 
 .price_selector{
   grid-column: 2/3;
@@ -8,7 +8,7 @@
   padding-bottom: 3.6rem;
   @include u.breakpoint(large){
     padding-top: 0rem;
-    grid-column: 3/4;
+    grid-column: 2/3;
     grid-row: 2/3;
     padding-bottom: 4.3rem;
     border-bottom: 1px solid #E4E8F7;

@@ -1,13 +1,10 @@
-@use './breakpoints' as u;
+@use '../breakpoints' as u;
 
 .main-presentation {
- 
-
   width: 100%;
   display: grid;
   grid: 11.2% auto / 9% 1fr 1fr 9%;
   @include u.breakpoint(large){
-    // display: flex;
     flex-direction: column;
     grid: 0% 1fr 1fr 0% / 9% 32rem 9%;
     grid-column: 2/3;
@@ -16,8 +13,7 @@
 
 }
 .main-presentation__img{
-
-  background-image: url('../assets/Girl-on-phone-phone.png');
+  background-image: url('../../assets/Girl-on-phone-phone.png');
   height: 24rem;
   width: 19rem;
   background-size: contain;
@@ -30,14 +26,12 @@
   justify-self: right;
   @include u.breakpoint(large){
 
-    background-image: url('../assets/Girl-on-phone-dektop.png');
+    background-image: url('../../assets/Girl-on-phone-dektop.png');
     height: 25rem;
     width: 32rem;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-
-    // width: 100px;
     grid-row: 2/3;
     grid-column: 2/3;
   }
@@ -50,7 +44,7 @@
   max-width: 24rem;
   @include u.breakpoint(large){
     grid-column: 2/4;
-  grid-row: 3/4;
+    grid-row: 3/4;
     max-width: 32rem;
   }
 }

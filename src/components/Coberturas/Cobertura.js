@@ -1,7 +1,9 @@
 import React from "react"
 
 export default function Cobertura ({setPrice, id,img, coberturaData, setCoberturaData, add, price,title, text}){
+  
   // const [show, setShow] = React.useState(false); 
+
   function increasePrice(){
     setPrice((prev)=>prev+price)
     validation()
@@ -29,7 +31,7 @@ export default function Cobertura ({setPrice, id,img, coberturaData, setCobertur
           <img src={img} />
 
           <h4 className="headline-xxs">{title}</h4>
-          { add?  <button onClick={decreasePrice}> Quitar</button>: <button onClick={increasePrice} >Agregar</button> }
+          { add?  <button className="rounded-button__red" onClick={decreasePrice}> Quitar</button>: <button className="rounded-button__green" onClick={increasePrice} >Agregar</button> }
             
         <div>
           <p className="text-md">{text}</p>

@@ -1,27 +1,19 @@
-
-
 .coberturas_form {
-  // background-color: red;
   margin-top: 4rem;
   
 }
 .coberturas_form--sections {
-  // background-color: red;
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
   
 }
 .coberturas_form--cobertura {
-  // display: flex;
-  // flex-direction: column;
   display: grid;
   grid-template: 5rem auto / 5.8rem auto 5.8rem;
-  // background-color: red;
   padding-top: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid #E4E8F7;
-  
 }
 .coberturas_form--cobertura img {
   grid-column: 1/2;
