@@ -1,0 +1,34 @@
+.coberturas_form {
+  margin-top: 4rem;
+  
+}
+.coberturas_form--sections {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+}
+.coberturas_form--cobertura {
+  display: grid;
+  grid-template: 5rem auto / 5.8rem auto 5.8rem;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #E4E8F7;
+}
+.coberturas_form--cobertura img {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.coberturas_form--cobertura h4 {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.coberturas_form--cobertura button {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.coberturas_form--cobertura div {
+  grid-column: 2/4;
+  grid-row: 2/3;
+}

@@ -1,106 +1,68 @@
 @use './breakpoints' as u;
 
-.arma_tu_plan {
+.main--arma_tu_plan{
+  min-width: 36rem;
   border-top: 1px solid #E4E8F7;
-  
+  @include u.breakpoint(large){
+    height: 100%;
+    display: grid;
+    grid: 6rem auto / 9% 1fr 1.5fr 9%;
+  }
+  @include u.breakpoint(xlarge){
+    grid: 6rem auto / auto 45.6rem 68.4rem auto;
+  }
+}
+
+.arma_tu_plan {
+  grid-column: 2/4;
+  grid-row: 2/3;
   justify-content: center;
   display: grid;
-  // grid-template: auto /30% auto;  dektop
-  grid-template: auto auto auto auto / 9% auto 9%; // movile
+  grid-template: auto auto auto auto / 9% auto 9%; 
   @include u.breakpoint(large){
-    grid-template: auto auto auto auto / 9% 26% 1fr 1fr; // movile
+    grid-template: auto auto auto auto /26% 1fr 1fr ; 
+  }
+  @include u.breakpoint(large){
+    grid-template: auto auto auto auto /  26% 1fr 1fr ; 
   }
 }
 
-.arma_tu_plan--container {
-  grid-column: 1/4;
-  box-shadow: 200px 0px #F7F8FC, -200px 0px #F7F8FC;
-
-  display: grid;
-  grid-template-columns:  9% auto 9%;
+.arma_tu_plan--user_card_container {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  box-shadow: 300px 0px #F7F8FC, -300px 0px #F7F8FC;
   background-color: #F7F8FC;
-  
-  @include u.breakpoint(large){
-    box-shadow: none;
-    grid-template-columns: 0 auto 0 ;
-    grid-column: 3/4;
-    grid-row: 1/2;
-    margin-top: 4.8rem;
-    background-color: #FFFFFF;
-  }
-}
-.arma_tu_plan--container > div{
-  grid-column: 2/3;
-  padding-top: 4rem;
+  max-width: 38rem;
   padding-bottom: 5.6rem;
-  max-width: 38rem;
-  justify-self: center;
   @include u.breakpoint(large){
-    justify-self: left;
-    padding-top: 0rem;
-    max-width: 38rem;
-  }
-}
-
-.sidebar{
-  padding: 1.2rem 0;
-  grid-column: 2/3;
-  max-width: 38rem;
-  width: 100%;
-  display: flex;
-  // justify-items: space-between;
-  @include u.breakpoint(large){
-    margin-top: 4.8rem;
+    padding-top: 0;
+    box-shadow: none;
     grid-column: 2/3;
     grid-row: 1/2;
+    background-color: #FFFFFF;
   }
-  
-}
-.sidebar--mobile{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  @include u.breakpoint(large){
+  button{
     display: none;
+    @include u.breakpoint(large){
+      display: inline-block;
+    }
+  }
+
+  span{
+    display: none;
+    @include u.breakpoint(large){
+      display: inline-block;
+    }
   }
 }
-.sidebar--desktop{
-  display: none;
-  @include u.breakpoint(large){
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    // justify-content: space-between;
-    align-items: left;
-    gap : 4.4rem;
-  }
-}
-.sidebar--desktop div{
-  display: flex;
-  gap: 1.6rem;
-  align-items: center;
-  // margin-bottom: 4.4rem;
-}
-.sidebar--desktop div button {
-  width: 2.4rem;
-  height: 2.4rem;
-}
 
-
-.sidebar--mobile .pruple-bar{
-  width: 17.6rem;
-  height: 0.6rem;
-  background-color: $purple-color;
-  border-radius: 2rem;
-}
 .coberturas {
   max-width: 38rem;
   grid-column: 2/3;
   grid-row: 4/5;
   @include u.breakpoint(large){
     margin-top: 5.5rem;
-    grid-column: 3/4;
+    grid-column: 2/3;
     grid-row: 4/5;
   }
 }
