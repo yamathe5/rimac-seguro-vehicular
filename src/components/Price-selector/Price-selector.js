@@ -1,48 +1,45 @@
 import React from "react"
 
-export default function PriceSelector({setPrice, coberturaData, setCoberturaData}){
-  console.log(coberturaData[0])
-  
+export default function PriceSelector({setPrice, coberturaData, setCoberturaData}){  
   const [budget, setBudget] = React.useState(14500)
   
-  console.log(budget)
   function increase(){
-    console.log(budget)
     setBudget((prevBudget)=>{
       if (prevBudget === 16500) return prevBudget
       return prevBudget + 100
     })
-    console.log(budget)
-    validatePrice(budget + 100) // NEED AN EXPLANATION FORTHIS - I HAVE ATHEORY
+    validateAddCobertura(budget + 100) 
   }
+
   function decrease(){
     setBudget((prevBudget)=>{
       if (prevBudget === 12500) return prevBudget
       return prevBudget - 100
     })
-    validatePrice(budget - 100) // -
+    validateAddCobertura(budget - 100) 
   }
 
-  function validatePrice (budget){ 
+  function toogleCobertura(coberturaData){
+    let newcobertura = coberturaData.map((item)=>{
+      if (item.id === 0){
+        return {...item, add: !item.add}
+      }else {
+        return item
+      }
+    })
+    return newcobertura
+  }
+
+  function validateAddCobertura (budget){ 
     if(budget > 16000 && coberturaData[0].add === true){
       setPrice((prev) => prev - 15)
-      let newcobertura = coberturaData.map((item)=>{
-        if (item.id === 0){
-          return {...item, add: !item.add}
-        }else {
-          return item
-        }
-      })
+
+      let newcobertura = toogleCobertura(coberturaData)
       setCoberturaData(newcobertura)
     }else if (budget <= 16000 && coberturaData[0].add === false) {
       setPrice((prev) => prev + 15)
-      let newcobertura = coberturaData.map((item)=>{
-        if (item.id === 0){
-          return {...item, add: !item.add}
-        }else {
-          return item
-        }
-      })
+
+      let newcobertura = toogleCobertura(coberturaData)
       setCoberturaData(newcobertura)
     }
   }
@@ -51,6 +48,7 @@ export default function PriceSelector({setPrice, coberturaData, setCoberturaData
   <div className="price_selector">
     <h3 className="headline-xxs">Indica la suma asegurada</h3>
     <p className="text-sm">Min $12,500 | Max $16,500</p>
+
     <div className="price_selector--buttons">
       <button onClick={decrease}>-</button>
       <p className="headline-xxs">$ {budget}</p>
