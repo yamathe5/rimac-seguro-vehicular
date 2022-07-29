@@ -4,7 +4,8 @@ import Headers from '../components/Header'
 import PriceSelector from "../components/Price-selector"
 import Coberturas from "../components/Coberturas/Coberturas"
 import Price from "../components/Price"
-import { logout } from "../services/sessions-services"
+// import { logout } from "../services/sessions-services"
+import { useAuth } from "../context/auth-context"
 import Llanta from "../assets/Llanta-robada.png"
 import Choque from "../assets/Choque.png"
 import Atropello from "../assets/Atropello.png"
@@ -41,16 +42,16 @@ const data = [
   }
 ]
 
-export default function ArmaTuPlan ({user,setUser}){
-
-  
+export default function ArmaTuPlan (){
+  const {user, logout} = useAuth();
+  console.log(user)
   const [coberturaData, setCoberturaData]  = React.useState(data)
   const [price, setPrice] = React.useState(35)
 
 
   function handleLogout(){
-    let newUser = logout()
-    setUser(newUser)
+    logout()
+
   }
  
   return (
@@ -62,14 +63,11 @@ export default function ArmaTuPlan ({user,setUser}){
           <div>
             <button className="rounded-button__red" onClick={handleLogout}>	&#x3C;</button>
             <span> VOLVER </span>
-            <h2 className="headline-md mg-top-24">!Hola, <span className="">Juan!</span></h2>
+            <h2 className="headline-md mg-top-24">!Hola, <span className="red-300">{user.nombre}!</span></h2>
             <p className="text-lg">Conoce las coberturas para tu plan</p>
             <UserCard user={user}/>
           </div>
-          {/* MODIFICA A COBERTURA 
-            quita la cobertura de choque 
-          */}
-          
+
         </div>
         <PriceSelector setPrice={setPrice} coberturaData={coberturaData} setCoberturaData={setCoberturaData}/> 
       

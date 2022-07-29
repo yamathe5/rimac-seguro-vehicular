@@ -1,15 +1,15 @@
 import RimacCarCard from "../../assets/Rimac-car-card.png"
+import { useAuth } from "../../context/auth-context";
 
-export default function UserCard ({user}){
+export default function UserCard (){
+  const {user} = useAuth();
 
-  function handleConsole(){
-    console.log(user)
-  }
+
   
   return (
-    <div onClick={handleConsole} className="arma_tu_plan--user_card">
+    <div className="arma_tu_plan--user_card">
       <p className="text-sm font-400 gray-100" >Placa {user.placa}</p>
-      <h3 className="headline-xxs">{user.auto || "Auto anio"} <br/> {user.modelo || "modelo"}</h3>
+      <h3 className="headline-xxs">{user.auto} {user["año-auto"]} <br/> {user["modelo-auto"] || "BMW"}</h3>
       <img src={RimacCarCard}/>
     </div>
 
