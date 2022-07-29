@@ -1,14 +1,13 @@
 import React from "react";
 import Header from "../components/Header/Header"
 import Presentation from "../components/Presentation";
-// import { login } from "../services/sessions-services";
 import { useAuth } from "../context/auth-context";
 
 const nombres = ['Johan','Juan','Pedro','Micaela', 'Sara','Stefany']
 const autos = [
   {
     auto: 'BMW',
-    modelo: [ 'x2', 'x4','x6' ]
+    modelo: [ 'X2', 'X4','X6' ]
   },
   {
     auto: 'Mercedez-Benz',
@@ -30,7 +29,7 @@ const autos = [
 
 
 export default function LoginPage(){
-  const { login } = useAuth(); //////////////////////////////////////
+  const { login } = useAuth(); 
   const [conditionsAccepted, setConditionsAccepted] = React.useState(false);
   const [documentTypeInput, setDocumentTypeInput] = React.useState("DNI");
   const [document, setDocument] = React.useState("")
@@ -53,8 +52,6 @@ export default function LoginPage(){
   function handleChange () {
     setConditionsAccepted(current => !current)
   }
-
-
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -63,20 +60,7 @@ export default function LoginPage(){
     event.preventDefault();
 
 
-    
-
-  //   {
-  //     "tipo-documento": "DNI",
-  //     "documento": "09054363",
-  //     "celular": "998401012",
-  //     "placa": "ASD-ASD",
-  //     "nombre":"",
-  //     "auto": "",
-  //     "modelo-auto": "",
-  //     "año-auto": "",
-  //     "correo":""
-  // }
-    const { documentType, document, phone, placa, check } = event.target.elements;
+    const { documentType, document, phone, placa } = event.target.elements;
     let nombre = nombres[getRandomInt(5)]
     let auto = autos[getRandomInt(4)].auto
     let modelo = autos[getRandomInt(4)].modelo[getRandomInt(2)]
@@ -91,16 +75,9 @@ export default function LoginPage(){
       "modelo-auto": modelo,
       "año-auto": años,
       correo: nombre + "@gmail.com",
-      extra: "extra"
     }
 
-    console.log(credentials)
-    
-    console.log(login);
-
     login(credentials).catch((error)=>console.log(error));
-
-    // setUser(data)
   }
   return (
     <>
@@ -109,8 +86,8 @@ export default function LoginPage(){
         <div className="main--background"></div>
         <Presentation/>
         <div className="form--container">
-          <h2 className="form--container__h2 headline-sm">Dejanos tus datos</h2>
-          <form className="form--container--form" onSubmit={handleSubmit}>
+          <h2 className="form--description headline-sm">Dejanos tus datos</h2>
+          <form className="form" onSubmit={handleSubmit}>
             <div className="input--container">
               <label htmlFor="documentType"></label>
               <select onChange={handleSelectChange} className="form__select" name="documentType" id="documentType">
@@ -119,23 +96,31 @@ export default function LoginPage(){
               </select>
               <label htmlFor="document"></label>
               {documentTypeInput === "DNI"?  
-                <input pattern="[0-9]{8}"  value={document} onChange={handleDocumentChange} placeholder="123456789" className="form__document" id="document" name="document" type="document" required/>:
-                <input pattern="[0-9]{12}" value={document} onChange={handleDocumentChange} placeholder="123456789123" className="form__document" id="document" name="document" type="document" required/> }
-              
-            </div> 
+                <input pattern="[0-9]{8}"  value={document} onChange={handleDocumentChange} placeholder="123456789" 
+                className="form__document" id="document" name="document" type="document" required/>:
+                <input pattern="[0-9]{12}" value={document} onChange={handleDocumentChange} placeholder="123456789123" 
+                className="form__document" id="document" name="document" type="document" required/> 
+              }
+            </div>
+
             <div className="input--container">
               <label htmlFor="phone"></label>
-              <input pattern="[0-9]{9}" value={phone} onChange={handlePhoneChange} className="form__phone" placeholder="999888777" id="phone" name="phone" type="phone" required/>
+              <input pattern="[0-9]{9}" value={phone} onChange={handlePhoneChange} className="form__phone" 
+              placeholder="999888777" id="phone" name="phone" type="phone" required/>
             </div>
+
             <div className="input--container">
               <label htmlFor="placa"></label>
-              <input pattern="[0-9|A-Z]{3}-[0-9|A-Z]{3}" placeholder="XWE-123" onChange={handlePlacaChange} value={placa} className="form__placa" id="placa" name="placa" type="text" required/>
+              <input pattern="[0-9|A-Z]{3}-[0-9|A-Z]{3}" placeholder="XWE-123" onChange={handlePlacaChange} 
+              value={placa} className="form__placa" id="placa" name="placa" type="text" required/>
             </div>
+
             <div className="input--container flex align-center gap">
               <input className="form__check" defaultChecked={conditionsAccepted} onChange={handleChange} id="check" name="check" type="checkbox" required/>
               <label className="text-sm" htmlFor="check">Acepto la Política de Protecciòn de Datos Personales y los Términos y Condiciones.</label>
             </div>
             <button className="form__submit button" type="submit">COTIZALO</button>
+            
           </form>
         </div>
       </div>
