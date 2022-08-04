@@ -125,7 +125,7 @@ export default function LoginPage(){
               </select>
               <label htmlFor="document"></label>
               {documentTypeInput === "DNI"?  
-                <input pattern="[0-9]{8}" value={document} onChange={handleDocumentChange} placeholder="123456789" 
+                <input pattern="[0-9]{8}" value={document} onChange={handleDocumentChange} placeholder="12345678" 
                 className="form__document" id="document" name="document" type="document" required/>:
                 <input pattern="[0-9]{12}" value={document} onChange={handleDocumentChange} placeholder="123456789123" 
                 className="form__document" id="document" name="document" type="document" required/> 
