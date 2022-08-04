@@ -29,12 +29,35 @@ const autos = [
 
 
 export default function LoginPage(){
-  const { login } = useAuth(); 
-  const [conditionsAccepted, setConditionsAccepted] = React.useState(false);
+  const { login } = useAuth();
+
+  const [check, setCheck] = React.useState(false);
   const [documentTypeInput, setDocumentTypeInput] = React.useState("DNI");
   const [document, setDocument] = React.useState("")
   const [phone, setPhone] = React.useState("")
   const [placa, setPlaca] = React.useState("")
+
+  function formValidation(documentType, document, phone, placa,check){
+    if(phone.value.length !== 9 || phone.value.match(/[1-9][0-9]{8}$/) == null){
+      return false
+    }
+    if(documentType.value === "DNI"){
+      if(document.value.length !== 8 || document.value.match(/[0-9][0-9]{7}$/) == null){ 
+        return false
+      }
+    }else if (documentType.value === "Pasaporte"){
+      if(document.value.length !== 12 || document.value.match(/[0-9][0-9]{11}$/) == null ){ 
+        return false
+      }
+    }
+    if(placa.value.length !== 7 || placa.value.match(/[0-9|A-Z|a-z]{3}-[0-9|A-Z|a-z]{3}/) == null ){
+      return false
+    }
+    if(check === false){
+      return false
+    }
+    return true
+  }
 
 
   function handleSelectChange(e){
@@ -50,7 +73,7 @@ export default function LoginPage(){
     setDocument(e.target.value)
   }
   function handleChange () {
-    setConditionsAccepted(current => !current)
+    setCheck(current => !current)
   }
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -59,12 +82,18 @@ export default function LoginPage(){
   function handleSubmit(event){
     event.preventDefault();
 
-
     const { documentType, document, phone, placa } = event.target.elements;
+
+    if(!formValidation(documentType, document, phone, placa,check)){
+      console.error("No se ingreso algun dato de manera correcta")
+      return
+    }
+
     let nombre = nombres[getRandomInt(5)]
     let auto = autos[getRandomInt(4)].auto
     let modelo = autos[getRandomInt(4)].modelo[getRandomInt(2)]
     let años =  2000 + getRandomInt(20)
+    
     const credentials = {
       "tipo-documento": documentType.value,
       documento: document.value,
@@ -96,7 +125,7 @@ export default function LoginPage(){
               </select>
               <label htmlFor="document"></label>
               {documentTypeInput === "DNI"?  
-                <input pattern="[0-9]{8}"  value={document} onChange={handleDocumentChange} placeholder="123456789" 
+                <input pattern="[0-9]{8}" value={document} onChange={handleDocumentChange} placeholder="123456789" 
                 className="form__document" id="document" name="document" type="document" required/>:
                 <input pattern="[0-9]{12}" value={document} onChange={handleDocumentChange} placeholder="123456789123" 
                 className="form__document" id="document" name="document" type="document" required/> 
@@ -116,7 +145,7 @@ export default function LoginPage(){
             </div>
 
             <div className="input--container flex align-center gap">
-              <input className="form__check" defaultChecked={conditionsAccepted} onChange={handleChange} id="check" name="check" type="checkbox" required/>
+              <input className="form__check" defaultChecked={check} onChange={handleChange} id="check" name="check" type="checkbox" required/>
               <label className="text-sm" htmlFor="check">Acepto la Política de Protecciòn de Datos Personales y los Términos y Condiciones.</label>
             </div>
             <button className="form__submit button" type="submit">COTIZALO</button>
