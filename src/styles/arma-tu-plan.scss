@@ -48,7 +48,7 @@
     }
   }
 
-  span{
+  > span{
     display: none;
     @include u.breakpoint(large){
       display: inline-block;
