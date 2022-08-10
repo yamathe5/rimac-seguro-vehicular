@@ -1,6 +1,6 @@
 @use './breakpoints' as u;
 
-.main--arma_tu_plan{
+.main-arma-tu-plan{
   min-width: 36rem;
   border-top: 1px solid #E4E8F7;
   @include u.breakpoint(large){
@@ -13,7 +13,7 @@
   }
 }
 
-.arma_tu_plan {
+.arma-tu-plan {
   grid-column: 2/4;
   grid-row: 2/3;
   justify-content: center;
@@ -27,10 +27,12 @@
   }
 }
 
-.arma_tu_plan--user_card_container {
+.arma-tu-plan__user-card-container {
   grid-column: 2/3;
   grid-row: 2/3;
   box-shadow: 300px 0px #F7F8FC, -300px 0px #F7F8FC;
+  -webkit-box-shadow:  300px 0px #F7F8FC, -300px 0px #F7F8FC;
+  -moz-box-shadow: 300px 0px #F7F8FC, -300px 0px #F7F8FC;
   background-color: #F7F8FC;
   max-width: 38rem;
   padding-bottom: 5.6rem;
@@ -56,7 +58,7 @@
   }
 }
 
-.coberturas {
+.coberturas-container {
   max-width: 38rem;
   grid-column: 2/3;
   grid-row: 4/5;

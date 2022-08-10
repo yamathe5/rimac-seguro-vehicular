@@ -84,7 +84,7 @@ export default function LoginPage(){
 
     const { documentType, document, phone, placa } = event.target.elements;
 
-    if(!formValidation(documentType, document, phone, placa,check)){
+    if(!formValidation(documentType, document, phone, placa, check)){
       console.error("No se ingreso algun dato de manera correcta")
       return
     }
@@ -111,13 +111,14 @@ export default function LoginPage(){
   return (
     <>
       <Header/>
-      <div className="main"> 
-        <div className="main--background"></div>
+      <div className="main-login"> 
+        <div className="main-login__background"></div>
         <Presentation/>
-        <div className="form--container">
-          <h2 className="form--description headline-sm">Dejanos tus datos</h2>
+        <div className="form-container">
+          <h2 className="form-container__description headline-sm">Dejanos tus datos</h2>
           <form className="form" onSubmit={handleSubmit}>
-            <div className="input--container">
+            
+            <div className="form__input-container">
               <label htmlFor="documentType"></label>
               <select onChange={handleSelectChange} className="form__select" name="documentType" id="documentType">
                 <option value="DNI">DNI</option>
@@ -132,19 +133,19 @@ export default function LoginPage(){
               }
             </div>
 
-            <div className="input--container">
+            <div className="form__input-container">
               <label htmlFor="phone"></label>
               <input pattern="[0-9]{9}" value={phone} onChange={handlePhoneChange} className="form__phone" 
               placeholder="999888777" id="phone" name="phone" type="phone" required/>
             </div>
 
-            <div className="input--container">
+            <div className="form__input-container">
               <label htmlFor="placa"></label>
               <input pattern="[0-9|A-Z]{3}-[0-9|A-Z]{3}" placeholder="XWE-123" onChange={handlePlacaChange} 
               value={placa} className="form__placa" id="placa" name="placa" type="text" required/>
             </div>
 
-            <div className="input--container flex align-center gap">
+            <div className="form__input-container flex align-center gap">
               <input className="form__check" defaultChecked={check} onChange={handleChange} id="check" name="check" type="checkbox" required/>
               <label className="text-sm" htmlFor="check">Acepto la Política de Protecciòn de Datos Personales y los Términos y Condiciones.</label>
             </div>

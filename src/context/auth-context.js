@@ -13,9 +13,10 @@ function AuthProvider({children}){
   function login (credentials) {
     return services.login(credentials)
     .then((u)=>{
-      navigate("/arma-tu-plan")
       setUser(u)
-    })
+      sessionStorage.setItem(tokenKey, JSON.stringify(u))
+      navigate("/arma-tu-plan")
+    }).catch((e)=>console.log(e))
   }
 
   function logout(){

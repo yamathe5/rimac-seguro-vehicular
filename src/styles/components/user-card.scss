@@ -16,28 +16,27 @@
     border: 3px solid #F0F2FA;
     border-radius: 12px;
   }
-}
-.arma_tu_plan--user_card img{
-  align-self: flex-end;
-  grid-row: 1/6;
-  grid-column: 4/5;
-}
-
-.arma_tu_plan--user_card p{
-  grid-row: 2/3;
-  grid-column: 2/4;
-  font-family: 'Roboto';
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 2rem;
-  letter-spacing: 0.20px;
-}
-.arma_tu_plan--user_card h3{
-  grid-row: 3/4;
-  grid-column: 2/4;
-  font-family: 'Lato';
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 2.8rem;
-  letter-spacing: 0rem;
+  img {
+    align-self: flex-end;
+    grid-row: 1/6;
+    grid-column: 4/5;
+  }
+  p {
+    grid-row: 2/3;
+    grid-column: 2/4;
+    font-family: 'Roboto';
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0.20px;
+  }
+  h3 {
+    grid-row: 3/4;
+    grid-column: 2/4;
+    font-family: 'Lato';
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.8rem;
+    letter-spacing: 0rem;
+  }
 }

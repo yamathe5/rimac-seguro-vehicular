@@ -1,4 +1,6 @@
 import React from "react"
+import ReactReadMoreReadLess from "react-read-more-read-less";
+import ToggleSwitch from "../ToggleSwitch";
 
 export default function Cobertura ({setPrice, id,img, coberturaData, setCoberturaData, add, price,title, text}){
   
@@ -27,14 +29,20 @@ export default function Cobertura ({setPrice, id,img, coberturaData, setCobertur
 
   return (
     <>
-      <div className="coberturas_form--cobertura">
-          <img src={img} />
+      <div className="coberturas-container__form__cobertura">
+        <img alt="cobertura imagen" src={img} />
 
-          <h4 className="headline-xxs">{title}</h4>
-          { add?  <button className="rounded-button__red" onClick={decreasePrice}> Quitar</button>: <button className="rounded-button__green" onClick={increasePrice} >Agregar</button> }
-            
-        <div>
-          <p className="text-md">{text}</p>
+        <h4 className="headline-xxs">{title}</h4>
+        <ToggleSwitch checked={add} handleOnClickChangePrice={add ? decreasePrice : increasePrice}/> 
+        <div className="cobertura__info text-md">
+
+          <ReactReadMoreReadLess  charLimit={0}
+          readMoreText={"ver más ▼"}
+          readLessText={"ver menos ▲"} 
+          readMoreClassName="read-more-less--more"
+          readLessClassName="read-more-less--less">
+            {text}
+          </ReactReadMoreReadLess>
         </div>
       </div>
     </>

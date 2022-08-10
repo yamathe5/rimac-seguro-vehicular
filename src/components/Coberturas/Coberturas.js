@@ -3,10 +3,10 @@ import Cobertura from "./Cobertura"
 export default function Coberturas({coberturaData,setCoberturaData,setPrice}){
 
   return (
-  <div className="coberturas">
+    <div className="coberturas-container">
       <h2 className="headline-xs">Agrega o quita coberturas</h2>
-      <div className="coberturas_form">
-        <div className="coberturas_form--sections">
+      <div className="coberturas-container__form">
+        <div className="coberturas-container__form__sections">
           <div className="red-300 text-xs font-700 text-center section__selected">
             PROTEGE A TU AUTO
           </div>
