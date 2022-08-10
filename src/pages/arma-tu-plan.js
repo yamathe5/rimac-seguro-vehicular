@@ -42,7 +42,7 @@ const data = [
 ]
 
 export default function ArmaTuPlan (){
-  const {user, logout} = useAuth();
+  const { user, logout } = useAuth();
   const [coberturaData, setCoberturaData]  = React.useState(data)
   const [price, setPrice] = React.useState(35)
 
@@ -55,16 +55,15 @@ export default function ArmaTuPlan (){
     <>
       <Headers/>
 
-      <div className="main--arma_tu_plan">
-        <div className="arma_tu_plan">
+      <div className="main-arma-tu-plan">
+        <div className="arma-tu-plan">
           <Sidebar/>
-          <div className="arma_tu_plan--user_card_container">
+          <div className="arma-tu-plan__user-card-container">
             <button className="rounded-button__red" onClick={handleLogout}>	&#x3C;</button>
             <span> VOLVER </span>
             <h2 className="headline-md mg-top-24">!Hola, <span className="red-300">{user.nombre}!</span></h2>
             <p className="text-lg">Conoce las coberturas para tu plan</p>
             <UserCard user={user}/>
-
           </div>
           <PriceSelector setPrice={setPrice} coberturaData={coberturaData} setCoberturaData={setCoberturaData}/> 
         
