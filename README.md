@@ -14,21 +14,6 @@ API: https://my-rimac-seguro-vehicular-api.herokuapp.com/users
 
 API-repositorio: https://github.com/yamathe5/rimac-seguro-vehicular-api
 
-## Funcionalidades Extra
-
-1. Si tu DNI se repite entonces la API te devolvera tu nombre pero con un carro distinto
-2. Si tu DNI, el numero de telefono y el numero de placa coinciden entonces te mostrara todos los datos del perfil anteriormente creado.
-
-## Librerias o Dependencias adicionales
-
-- React Router Dom: Fue utilizado para simular navegacion entre paginas web por medio del URL
-
-## Recursos Utilizados
-
-- Sass
-- Postman
-- Heroku
-
 ## Division de tareas
 
 ### Se dividio el trabajo en ramas
@@ -47,6 +32,22 @@ API-repositorio: https://github.com/yamathe5/rimac-seguro-vehicular-api
 4. Corremos el comando **npm install** dentro del proyecto
 5. Corremos el comando **npm start** dentro del proyecto
 6. Buscamos **localhost:3000** en nuestro navegador, ya sea el que react nos indique o el que tengamos asignado.
+
+## Funcionalidades Extra
+
+1. Si tu DNI se repite entonces la API te devolvera tu nombre pero con un carro distinto
+2. Si tu DNI, el numero de telefono y el numero de placa coinciden entonces te mostrara todos los datos del perfil anteriormente creado.
+
+## Librerias o Dependencias adicionales
+
+- React Router Dom: Fue utilizado para simular navegacion entre paginas web por medio del URL
+
+## Recursos Utilizados
+
+- Sass
+- Postman
+- Heroku
+
 
 ## Detalles del proyecto
 
