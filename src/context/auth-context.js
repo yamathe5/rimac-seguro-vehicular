@@ -11,8 +11,7 @@ function AuthProvider({children}){
 
 
   function login (credentials) {
-    return services.login(credentials)
-    .then((u)=>{
+    return services.login(credentials).then((u)=>{
       setUser(u)
       sessionStorage.setItem(tokenKey, JSON.stringify(u))
       navigate("/arma-tu-plan")
@@ -28,8 +27,6 @@ function AuthProvider({children}){
   function sendData(){
     navigate("/gracias")
   }
-
-  // if (loading) return <p>Loading</p>
 
   return (
     <AuthContext.Provider value={{user, login, logout, sendData}}>
